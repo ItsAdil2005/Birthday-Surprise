@@ -84,7 +84,13 @@ section{min-height:100vh;display:flex;align-items:center;position:relative;overf
 .memory:nth-child(3){transform:rotate(1deg)}
 .memory:nth-child(4){transform:rotate(-1deg)}
 .memory:hover{transform:translateY(-15px) rotate(0) scale(1.02)}
-.memory img{width:100%;height:410px;object-fit:cover;display:block}
+.memory img{
+    width:100%;
+    height:410px;
+    object-fit:contain;
+    display:block;
+    background:#080309;
+}
 .memory-caption{color:#f2d9e1;text-align:center;padding:18px 5px;font-family:'Dancing Script',cursive;font-size:25px}
 
 #timeline{background:#080307;padding:120px 0}
