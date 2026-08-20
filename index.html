@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080309">
+<title>For Sheeba ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:#080309;color:#fff;font-family:Montserrat,sans-serif;
+  overflow-x:hidden;
+}
+body.lock{overflow:hidden}
+:root{
+  --pink:#ff6f9f;--rose:#ff376f;--soft:#ffd0df;
+  --gold:#e9c77b;--dark:#080309;
+}
+section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.container{width:min(1100px,90%);margin:auto;position:relative;z-index:5}
+.label{color:#dca9bb;text-transform:uppercase;letter-spacing:5px;font-size:10px;margin-bottom:18px}
+.title{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,7vw,90px);font-weight:500;line-height:.95}
+.script{font-family:'Dancing Script',cursive}
+
+#intro{
+  position:fixed;inset:0;z-index:99999;display:flex;align-items:center;
+  justify-content:center;text-align:center;
+  background:radial-gradient(circle at center,#4a0928 0%,#190510 40%,#050205 100%);
+  transition:1.5s ease;
+}
+.intro-box{width:min(700px,90%);position:relative;z-index:3}
+.intro-small{color:#eab6c8;font-size:11px;letter-spacing:6px;text-transform:uppercase;margin-bottom:25px}
+.intro-heart{font-size:65px;animation:beat 1.4s infinite;filter:drop-shadow(0 0 20px #ff376f)}
+.intro-title{font-family:'Dancing Script',cursive;font-size:clamp(70px,12vw,145px);line-height:.85;margin:25px 0}
+.intro-title span{color:var(--pink)}
+.intro-text{color:#e9c5d2;font-size:14px;line-height:1.8;margin-bottom:35px}
+.enter-btn{
+  padding:17px 35px;border:none;border-radius:50px;background:linear-gradient(135deg,#ff326b,#ff78a4);
+  color:#fff;font-weight:600;letter-spacing:1px;cursor:pointer;
+  box-shadow:0 0 35px rgba(255,55,111,.45);transition:.4s
+}
+.enter-btn:hover{transform:scale(1.08);box-shadow:0 0 60px rgba(255,55,111,.7)}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.22)}30%{transform:scale(1)}45%{transform:scale(1.13)}}
+
+#hero{
+  text-align:center;
+  background:radial-gradient(circle at 50% 45%,#470a29 0%,#18050e 42%,#070308 75%);
+}
+.hero-date{color:#dba8ba;font-size:11px;letter-spacing:5px;text-transform:uppercase}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(80px,15vw,170px);
+  line-height:.72;margin:35px 0;font-weight:500
+}
+.hero-title span{color:var(--pink);font-family:'Dancing Script',cursive}
+.hero-subtitle{max-width:700px;margin:auto;color:#e9c7d2;font-size:15px;line-height:2}
+.scroll{margin-top:55px;color:#b88d9d;font-size:10px;letter-spacing:4px}
+.scroll span{display:block;margin-top:12px;animation:scrollDown 1.5s infinite}
+@keyframes scrollDown{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(10px);opacity:1}}
+
+#letter{background:#0a0408;padding:120px 0}
+.letter-wrapper{margin:60px auto 0;max-width:850px}
+.envelope{
+  background:linear-gradient(145deg,#170812,#0c0509);border:1px solid rgba(255,180,205,.15);
+  border-radius:5px;padding:65px;box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 0 80px rgba(255,55,111,.04);
+  position:relative
+}
+.envelope:before{content:"";position:absolute;inset:15px;border:1px solid rgba(233,199,123,.2);pointer-events:none}
+.letter-icon{text-align:center;font-size:35px;margin-bottom:30px}
+.letter-content{color:#e8ccd6;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.8}
+.letter-content strong{color:#ff82a9;font-family:'Dancing Script',cursive;font-size:36px}
+.signature{text-align:right;margin-top:35px;color:#ff789f;font-family:'Dancing Script',cursive;font-size:36px}
+
+#memories{background:linear-gradient(#090308,#10050a);padding:120px 0}
+.memory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:35px;margin-top:65px}
+.memory{
+  height:520px;background:#160a10;padding:12px;box-shadow:0 25px 60px rgba(0,0,0,.5);
+  transform:rotate(-1.5deg);transition:.6s
+}
+.memory:nth-child(2){transform:rotate(1.5deg)}
+.memory:nth-child(3){transform:rotate(1deg)}
+.memory:nth-child(4){transform:rotate(-1deg)}
+.memory:hover{transform:translateY(-15px) rotate(0) scale(1.02)}
+.memory img{width:100%;height:410px;object-fit:cover;display:block}
+.memory-caption{color:#f2d9e1;text-align:center;padding:18px 5px;font-family:'Dancing Script',cursive;font-size:25px}
+
+#timeline{background:#080307;padding:120px 0}
+.timeline{margin:70px auto 0;max-width:750px;position:relative}
+.timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,#ff5e91,transparent)}
+.event{width:50%;padding:25px 45px;position:relative}
+.event:nth-child(even){margin-left:50%}
+.event:after{content:"❤️";position:absolute;top:30px;right:-11px;font-size:14px}
+.event:nth-child(even):after{left:-11px;right:auto}
+.event h3{color:#ff7da4;font-family:'Dancing Script',cursive;font-size:30px}
+.event p{color:#bfa8b1;margin-top:8px;line-height:1.7;font-size:13px}
+
+#reasons{background:radial-gradient(circle,#30091d,#080307 70%);padding:120px 0;text-align:center}
+.reason-box{
+  margin:60px auto 0;max-width:650px;min-height:250px;display:flex;align-items:center;justify-content:center;
+  padding:40px;border:1px solid rgba(255,126,163,.2);background:rgba(255,255,255,.025);
+  backdrop-filter:blur(15px);border-radius:20px
+}
+.reason{font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.5;color:#f2dce3;transition:.3s}
+.reason-btn{margin-top:30px;padding:13px 25px;border:1px solid #ff6d99;background:transparent;color:#ff94b5;border-radius:30px;cursor:pointer}
+
+#gift{background:radial-gradient(circle at center,#3b0920,#080307 70%);text-align:center}
+.gift{width:190px;height:150px;position:relative;margin:60px auto 30px;cursor:pointer}
+.gift-body{position:absolute;bottom:0;width:190px;height:110px;background:linear-gradient(135deg,#c80d48,#ff477e);border-radius:5px;box-shadow:0 20px 60px rgba(255,30,90,.3)}
+.gift-lid{position:absolute;top:12px;left:-8px;width:206px;height:40px;background:#ff6593;border-radius:6px;z-index:3;transition:.8s}
+.ribbon{position:absolute;z-index:4;background:#e9c77b}
+.ribbon-v{left:77px;top:0;width:36px;height:150px}
+.ribbon-h{left:0;top:52px;width:190px;height:24px}
+.gift.open .gift-lid{transform:translateY(-105px) rotate(-8deg)}
+.gift-message{opacity:0;transform:translateY(20px);transition:.7s}
+.gift-message.show{opacity:1;transform:translateY(0)}
+.gift-message h3{color:#ff80a7;font-family:'Dancing Script',cursive;font-size:50px}
+.gift-message p{color:#d9c0ca;line-height:1.8;margin-top:15px}
+
+#final{text-align:center;background:radial-gradient(circle at center,#4a0927,#080307 75%)}
+.final-heart{font-size:75px;animation:beat 1.3s infinite}
+.final-title{font-family:'Dancing Script',cursive;font-size:clamp(65px,10vw,120px);color:#ff78a4;text-shadow:0 0 45px rgba(255,55,111,.7);margin:20px 0}
+.final-text{max-width:650px;margin:0 auto 35px;color:#e7cbd5;line-height:1.9}
+
+.music{
+  position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);background:rgba(25,5,15,.85);color:#fff;cursor:pointer;z-index:500
+}
+
+.floating-heart{position:fixed;bottom:-50px;z-index:300;pointer-events:none;animation:float linear forwards}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+#fireworks{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:400}
+
+@media(max-width:800px){
+  .memory-grid{grid-template-columns:1fr}
+  .memory{height:500px}
+  .memory img{height:400px}
+  .event,.event:nth-child(even){width:100%;margin-left:0;padding-left:40px;padding-right:15px}
+  .timeline:before{left:10px}
+  .event:after,.event:nth-child(even):after{left:0;right:auto}
+  .envelope{padding:35px 25px}
+  .letter-content{font-size:19px}
+}
+</style>
+</head>
+
+<body class="lock">
+
+<div id="intro">
+  <div class="intro-box">
+    <div class="intro-heart">❤️</div>
+    <div class="intro-small">A secret message for you</div>
+    <div class="intro-title">For <span>Sheeba</span></div>
+    <div class="intro-text">
+      Some people come into our lives...<br>
+      and quietly become our favorite part of it.
+    </div>
+    <button class="enter-btn" onclick="enterSite()">OPEN MY HEART 💌</button>
+  </div>
+</div>
+
+<!-- Optional: upload music.mp3 next to index.html -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" id="musicButton" onclick="toggleMusic()">🎵</button>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-date">A special day for a special girl</div>
+    <div class="hero-title">Happy<br><span>Birthday</span></div>
+    <div class="hero-subtitle">
+      Today the world celebrates the day you were born...
+      but I celebrate the day someone incredibly special
+      became part of my life. ❤️
+    </div>
+    <div class="scroll">KEEP SCROLLING <span>↓</span></div>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="container">
+    <div class="label">From my heart</div>
+    <div class="title">I wrote something for you...</div>
+
+    <div class="letter-wrapper">
+      <div class="envelope">
+        <div class="letter-icon">💌</div>
+
+        <div class="letter-content">
+          My dearest <strong>Sheeba</strong>,
+          <br><br>
+          If I could give you one thing today,
+          I wouldn't give you something expensive.
+          <br><br>
+          I'd give you the ability to see yourself
+          through my eyes...
+          <br><br>
+          because then you would finally understand
+          just how special you are to me.
+          <br><br>
+          I love the little things about you.
+          Your smile. Your voice. Your silly moments.
+          The way you make ordinary conversations feel like memories.
+          <br><br>
+          You have somehow become one of those people
+          whose presence makes everything feel better.
+          <br><br>
+          So today, I only have one wish for you:
+          <br><br>
+          <strong>May life give you every happiness your heart deserves.</strong>
+          <br><br>
+          And selfishly... I hope I get to be there
+          for many of those beautiful moments.
+        </div>
+
+        <div class="signature">With all my heart,<br>Adil ❤️</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="memories">
+  <div class="container">
+    <div class="label">Our memories</div>
+    <div class="title">Little moments.<br>Big memories. ❤️</div>
+
+    <div class="memory-grid">
+
+      <div class="memory">
+        <img src="photo1.jpg" alt="Our memory 1">
+        <div class="memory-caption">The moment that means so much to me. ❤️</div>
+      </div>
+
+      <div class="memory">
+        <img src="photo2.jpg" alt="Our memory 2">
+        <div class="memory-caption">Your smile will always be my favorite. 💕</div>
+      </div>
+
+      <div class="memory">
+        <img src="photo3.jpg" alt="Our memory 3">
+        <div class="memory-caption">A memory I would replay forever. ✨</div>
+      </div>
+
+      <div class="memory">
+        <img src="photo4.jpg" alt="Our memory 4">
+        <div class="memory-caption">You make ordinary moments beautiful. 💗</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="container">
+    <div class="label">Our little story</div>
+    <div class="title">If I could replay<br>everything...</div>
+
+    <div class="timeline">
+      <div class="event">
+        <h3>The Beginning</h3>
+        <p>The moment our story started, I didn't know it would become something this beautiful.</p>
+      </div>
+      <div class="event">
+        <h3>The First Smile</h3>
+        <p>Somehow your smile became one of those little things I started looking forward to.</p>
+      </div>
+      <div class="event">
+        <h3>The Memories</h3>
+        <p>Conversations, jokes, random moments... somehow they all became important.</p>
+      </div>
+      <div class="event">
+        <h3>Today ❤️</h3>
+        <p>Today I'm simply grateful that someone like you exists in my world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reasons">
+  <div class="container">
+    <div class="label">Just a few reasons</div>
+    <div class="title">Why you're special</div>
+
+    <div class="reason-box">
+      <div>
+        <div class="reason" id="reason">
+          Because your smile can completely change my mood. ❤️
+        </div>
+        <button class="reason-btn" onclick="nextReason()">Tell me another ❤️</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gift">
+  <div class="container" style="text-align:center">
+    <div class="label">One last surprise</div>
+    <div class="title">I saved something for you 🎁</div>
+
+    <div class="gift" onclick="openGift()">
+      <div class="gift-lid"></div>
+      <div class="gift-body"></div>
+      <div class="ribbon ribbon-v"></div>
+      <div class="ribbon ribbon-h"></div>
+    </div>
+
+    <div class="gift-message" id="giftMessage">
+      <h3>My gift is you. ❤️</h3>
+      <p>
+        Not because I own you... but because getting to know you,
+        laughing with you, and making memories with you
+        is something I treasure.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="final">
+  <div class="container" style="text-align:center">
+    <div class="final-heart">❤️</div>
+    <div class="final-title">One last thing...</div>
+
+    <div class="final-text">
+      If this little website made you smile,
+      then it has already done what I wanted.
+      <br><br>
+      Happy Birthday, Sheeba.
+      <br><br>
+      Keep smiling. Keep shining.
+      And never forget how special you are.
+      <br><br>
+      <strong style="color:#ff82a9">
+        Here's to many more beautiful memories. ❤️
+      </strong>
+    </div>
+
+    <button class="enter-btn" onclick="celebrate()">MAKE A WISH ✨</button>
+  </div>
+</section>
+
+<canvas id="fireworks"></canvas>
+
+<script>
+const intro=document.getElementById("intro");
+const music=document.getElementById("music");
+const musicButton=document.getElementById("musicButton");
+
+function enterSite(){
+  intro.style.opacity="0";
+  setTimeout(()=>{
+    intro.remove();
+    document.body.classList.remove("lock");
+  },1500);
+
+  music.play().then(()=>{
+    musicButton.innerHTML="🔊";
+  }).catch(()=>{
+    musicButton.innerHTML="🎵";
+  });
+
+  startHearts();
+}
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+    musicButton.innerHTML="🔊";
+  }else{
+    music.pause();
+    musicButton.innerHTML="🎵";
+  }
+}
+
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="floating-heart";
+  const list=["❤️","💕","💗","💖","💘"];
+  heart.innerHTML=list[Math.floor(Math.random()*list.length)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(14+Math.random()*30)+"px";
+  heart.style.animationDuration=(5+Math.random()*6)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+}
+
+function startHearts(){
+  setInterval(createHeart,500);
+}
+
+const reasons=[
+  "Because your smile can completely change my mood. ❤️",
+  "Because talking to you can make an ordinary day feel special. 💕",
+  "Because you have a way of making memories without even trying. ✨",
+  "Because your happiness genuinely matters to me. 💗",
+  "Because somehow, you became one of my favorite people. ❤️",
+  "Because being around you feels like home. 🫶"
+];
+
+let reasonIndex=0;
+
+function nextReason(){
+  reasonIndex=(reasonIndex+1)%reasons.length;
+  const box=document.getElementById("reason");
+  box.style.opacity="0";
+  setTimeout(()=>{
+    box.innerHTML=reasons[reasonIndex];
+    box.style.opacity="1";
+  },250);
+}
+
+function openGift(){
+  const gift=document.querySelector(".gift");
+  const message=document.getElementById("giftMessage");
+  gift.classList.toggle("open");
+  message.classList.toggle("show");
+
+  if(message.classList.contains("show")){
+    for(let i=0;i<15;i++) setTimeout(createHeart,i*100);
+  }
+}
+
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+let particles=[];
+
+function resize(){
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
+
+function firework(){
+  const x=Math.random()*canvas.width;
+  const y=Math.random()*canvas.height*.55;
+
+  for(let i=0;i<70;i++){
+    const angle=Math.random()*Math.PI*2;
+    const speed=2+Math.random()*6;
+
+    particles.push({
+      x:x,y:y,
+      vx:Math.cos(angle)*speed,
+      vy:Math.sin(angle)*speed,
+      life:80+Math.random()*40,
+      size:1+Math.random()*2
+    });
+  }
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach((p,index)=>{
+    p.x+=p.vx;
+    p.y+=p.vy;
+    p.vy+=.035;
+    p.life--;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,130,180,.9)";
+    ctx.fill();
+
+    if(p.life<=0) particles.splice(index,1);
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+function celebrate(){
+  for(let i=0;i<18;i++) setTimeout(firework,i*180);
+  for(let i=0;i<50;i++) setTimeout(createHeart,i*70);
+}
+</script>
+
+</body>
+</html>
