@@ -2,491 +2,1629 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080309">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>For Sheeba ❤️</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    background:#030106;
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+}
+
 body{
-  background:#080309;color:#fff;font-family:Montserrat,sans-serif;
-  overflow-x:hidden;
+    overflow:hidden;
 }
-body.lock{overflow:hidden}
-:root{
-  --pink:#ff6f9f;--rose:#ff376f;--soft:#ffd0df;
-  --gold:#e9c77b;--dark:#080309;
+
+button{
+    font-family:inherit;
 }
-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
-.container{width:min(1100px,90%);margin:auto;position:relative;z-index:5}
-.label{color:#dca9bb;text-transform:uppercase;letter-spacing:5px;font-size:10px;margin-bottom:18px}
-.title{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,7vw,90px);font-weight:500;line-height:.95}
-.script{font-family:'Dancing Script',cursive}
+
+canvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+#stars{
+    z-index:1;
+}
+
+#fireworks{
+    z-index:100;
+}
+
+/* =========================
+   INTRO
+========================= */
 
 #intro{
-  position:fixed;inset:0;z-index:99999;display:flex;align-items:center;
-  justify-content:center;text-align:center;
-  background:radial-gradient(circle at center,#4a0928 0%,#190510 40%,#050205 100%);
-  transition:1.5s ease;
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle at center,#4b092b,#18050f 45%,#030106);
+    transition:1.5s;
 }
-.intro-box{width:min(700px,90%);position:relative;z-index:3}
-.intro-small{color:#eab6c8;font-size:11px;letter-spacing:6px;text-transform:uppercase;margin-bottom:25px}
-.intro-heart{font-size:65px;animation:beat 1.4s infinite;filter:drop-shadow(0 0 20px #ff376f)}
-.intro-title{font-family:'Dancing Script',cursive;font-size:clamp(70px,12vw,145px);line-height:.85;margin:25px 0}
-.intro-title span{color:var(--pink)}
-.intro-text{color:#e9c5d2;font-size:14px;line-height:1.8;margin-bottom:35px}
-.enter-btn{
-  padding:17px 35px;border:none;border-radius:50px;background:linear-gradient(135deg,#ff326b,#ff78a4);
-  color:#fff;font-weight:600;letter-spacing:1px;cursor:pointer;
-  box-shadow:0 0 35px rgba(255,55,111,.45);transition:.4s
-}
-.enter-btn:hover{transform:scale(1.08);box-shadow:0 0 60px rgba(255,55,111,.7)}
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.22)}30%{transform:scale(1)}45%{transform:scale(1.13)}}
 
-#hero{
-  text-align:center;
-  background:radial-gradient(circle at 50% 45%,#470a29 0%,#18050e 42%,#070308 75%);
+.intro-box{
+    width:90%;
+    max-width:650px;
 }
-.hero-date{color:#dba8ba;font-size:11px;letter-spacing:5px;text-transform:uppercase}
-.hero-title{
-  font-family:'Cormorant Garamond',serif;font-size:clamp(80px,15vw,170px);
-  line-height:.72;margin:35px 0;font-weight:500
-}
-.hero-title span{color:var(--pink);font-family:'Dancing Script',cursive}
-.hero-subtitle{max-width:700px;margin:auto;color:#e9c7d2;font-size:15px;line-height:2}
-.scroll{margin-top:55px;color:#b88d9d;font-size:10px;letter-spacing:4px}
-.scroll span{display:block;margin-top:12px;animation:scrollDown 1.5s infinite}
-@keyframes scrollDown{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(10px);opacity:1}}
 
-#letter{background:#0a0408;padding:120px 0}
-.letter-wrapper{margin:60px auto 0;max-width:850px}
-.envelope{
-  background:linear-gradient(145deg,#170812,#0c0509);border:1px solid rgba(255,180,205,.15);
-  border-radius:5px;padding:65px;box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 0 80px rgba(255,55,111,.04);
-  position:relative
+.small-text{
+    color:#d9a8bb;
+    font-size:10px;
+    letter-spacing:6px;
+    text-transform:uppercase;
 }
-.envelope:before{content:"";position:absolute;inset:15px;border:1px solid rgba(233,199,123,.2);pointer-events:none}
-.letter-icon{text-align:center;font-size:35px;margin-bottom:30px}
-.letter-content{color:#e8ccd6;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.8}
-.letter-content strong{color:#ff82a9;font-family:'Dancing Script',cursive;font-size:36px}
-.signature{text-align:right;margin-top:35px;color:#ff789f;font-family:'Dancing Script',cursive;font-size:36px}
 
-#memories{background:linear-gradient(#090308,#10050a);padding:120px 0}
-.memory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:35px;margin-top:65px}
-.memory{
-  height:auto;background:#160a10;padding:12px;box-shadow:0 25px 60px rgba(0,0,0,.5);
-  transform:rotate(-1.5deg);transition:.6s
+.intro-heart{
+    font-size:90px;
+    margin:25px 0;
+    filter:drop-shadow(0 0 35px #ff1f67);
+    animation:beat 1.2s infinite;
 }
-.memory:nth-child(2){transform:rotate(1.5deg)}
-.memory:nth-child(3){transform:rotate(1deg)}
-.memory:nth-child(4){transform:rotate(-1deg)}
-.memory:hover{transform:translateY(-15px) rotate(0) scale(1.02)}
-.memory img{
+
+@keyframes beat{
+    0%,100%{transform:scale(1)}
+    15%{transform:scale(1.2)}
+    30%{transform:scale(1)}
+    45%{transform:scale(1.1)}
+}
+
+.intro-title{
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(70px,13vw,145px);
+    line-height:.8;
+}
+
+.intro-title span{
+    color:#ff6595;
+}
+
+.intro-text{
+    color:#dec3cd;
+    line-height:1.8;
+    margin-top:25px;
+}
+
+.btn{
+    margin-top:30px;
+    padding:16px 32px;
+    border:0;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff1659,#ff78a6);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 0 40px rgba(255,30,90,.45);
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#main{
+    position:fixed;
+    inset:0;
+    z-index:10;
+    opacity:0;
+    visibility:hidden;
+    transition:1.2s;
+}
+
+#main.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.heart-area{
+    position:relative;
+    width:360px;
+    height:360px;
+}
+
+.big-heart{
+    position:absolute;
+    width:175px;
+    height:175px;
+    left:92px;
+    top:92px;
+    background:linear-gradient(135deg,#ff164f,#ff5d91);
+    transform:rotate(-45deg);
+    border-radius:20px;
+    box-shadow:
+    0 0 30px #ff174f,
+    0 0 80px rgba(255,20,80,.8),
+    0 0 150px rgba(255,20,80,.4);
+    animation:bigBeat 1.2s infinite;
+}
+
+.big-heart:before,
+.big-heart:after{
+    content:"";
+    position:absolute;
+    width:175px;
+    height:175px;
+    background:linear-gradient(135deg,#ff164f,#ff5d91);
+    border-radius:50%;
+}
+
+.big-heart:before{
+    top:-87px;
+    left:0;
+}
+
+.big-heart:after{
+    left:87px;
+    top:0;
+}
+
+@keyframes bigBeat{
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+    15%{
+        transform:rotate(-45deg) scale(1.12);
+    }
+    30%{
+        transform:rotate(-45deg) scale(1);
+    }
+    45%{
+        transform:rotate(-45deg) scale(1.07);
+    }
+}
+
+.heart-writing{
+    position:absolute;
+    top:145px;
+    left:0;
+    right:0;
+    z-index:10;
+    font-family:'Dancing Script',cursive;
+    font-size:47px;
+    text-shadow:0 0 20px white;
+}
+
+.heart-birthday{
+    position:absolute;
+    top:202px;
+    left:0;
+    right:0;
+    z-index:10;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photo{
+    position:absolute;
+    width:145px;
+    height:190px;
+    padding:7px;
+    background:#fff;
+    z-index:30;
+    opacity:0;
+    box-shadow:0 15px 50px rgba(255,30,90,.35);
+    transition:1.3s;
+}
+
+.photo.show{
+    opacity:1;
+}
+
+.photo img{
     width:100%;
-    height:auto;
-    display:block;
-    background:#080309;
+    height:100%;
+    object-fit:contain;
+    background:#090308;
 }
-.memory-caption{color:#f2d9e1;text-align:center;padding:18px 5px;font-family:'Dancing Script',cursive;font-size:25px}
 
-#timeline{background:#080307;padding:120px 0}
-.timeline{margin:70px auto 0;max-width:750px;position:relative}
-.timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,#ff5e91,transparent)}
-.event{width:50%;padding:25px 45px;position:relative}
-.event:nth-child(even){margin-left:50%}
-.event:after{content:"❤️";position:absolute;top:30px;right:-11px;font-size:14px}
-.event:nth-child(even):after{left:-11px;right:auto}
-.event h3{color:#ff7da4;font-family:'Dancing Script',cursive;font-size:30px}
-.event p{color:#bfa8b1;margin-top:8px;line-height:1.7;font-size:13px}
-
-#reasons{background:radial-gradient(circle,#30091d,#080307 70%);padding:120px 0;text-align:center}
-.reason-box{
-  margin:60px auto 0;max-width:650px;min-height:250px;display:flex;align-items:center;justify-content:center;
-  padding:40px;border:1px solid rgba(255,126,163,.2);background:rgba(255,255,255,.025);
-  backdrop-filter:blur(15px);border-radius:20px
+.photo1{
+    left:5%;
+    top:10%;
+    transform:rotate(-10deg);
 }
-.reason{font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.5;color:#f2dce3;transition:.3s}
-.reason-btn{margin-top:30px;padding:13px 25px;border:1px solid #ff6d99;background:transparent;color:#ff94b5;border-radius:30px;cursor:pointer}
 
-#gift{background:radial-gradient(circle at center,#3b0920,#080307 70%);text-align:center}
-.gift{width:190px;height:150px;position:relative;margin:60px auto 30px;cursor:pointer}
-.gift-body{position:absolute;bottom:0;width:190px;height:110px;background:linear-gradient(135deg,#c80d48,#ff477e);border-radius:5px;box-shadow:0 20px 60px rgba(255,30,90,.3)}
-.gift-lid{position:absolute;top:12px;left:-8px;width:206px;height:40px;background:#ff6593;border-radius:6px;z-index:3;transition:.8s}
-.ribbon{position:absolute;z-index:4;background:#e9c77b}
-.ribbon-v{left:77px;top:0;width:36px;height:150px}
-.ribbon-h{left:0;top:52px;width:190px;height:24px}
-.gift.open .gift-lid{transform:translateY(-105px) rotate(-8deg)}
-.gift-message{opacity:0;transform:translateY(20px);transition:.7s}
-.gift-message.show{opacity:1;transform:translateY(0)}
-.gift-message h3{color:#ff80a7;font-family:'Dancing Script',cursive;font-size:50px}
-.gift-message p{color:#d9c0ca;line-height:1.8;margin-top:15px}
+.photo2{
+    right:5%;
+    top:10%;
+    transform:rotate(10deg);
+}
 
-#final{text-align:center;background:radial-gradient(circle at center,#4a0927,#080307 75%)}
-.final-heart{font-size:75px;animation:beat 1.3s infinite}
-.final-title{font-family:'Dancing Script',cursive;font-size:clamp(65px,10vw,120px);color:#ff78a4;text-shadow:0 0 45px rgba(255,55,111,.7);margin:20px 0}
-.final-text{max-width:650px;margin:0 auto 35px;color:#e7cbd5;line-height:1.9}
+.photo3{
+    left:5%;
+    bottom:9%;
+    transform:rotate(8deg);
+}
+
+.photo4{
+    right:5%;
+    bottom:9%;
+    transform:rotate(-8deg);
+}
+
+/* =========================
+   SHAYARI
+========================= */
+
+.shayari-box{
+    position:absolute;
+    bottom:4%;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:760px;
+    text-align:center;
+    opacity:0;
+    transition:1.2s;
+    z-index:40;
+}
+
+.shayari-box.show{
+    opacity:1;
+}
+
+.shayari-title{
+    font-family:'Dancing Script',cursive;
+    color:#ff789f;
+    font-size:42px;
+}
+
+.shayari{
+    margin-top:10px;
+    color:#ffd0df;
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    line-height:1.6;
+}
+
+/* =========================
+   REASONS
+========================= */
+
+#reasons{
+    position:absolute;
+    inset:0;
+    z-index:60;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle,#39091f,#080208 70%);
+    opacity:0;
+    visibility:hidden;
+    transition:1s;
+}
+
+#reasons.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.reason-container{
+    width:90%;
+    max-width:750px;
+}
+
+.section-title{
+    font-family:'Dancing Script',cursive;
+    color:#ff79a4;
+    font-size:55px;
+    margin-bottom:25px;
+}
+
+.reason-card{
+    min-height:210px;
+    padding:35px;
+    border:1px solid rgba(255,130,170,.25);
+    border-radius:20px;
+    background:rgba(255,255,255,.035);
+    box-shadow:0 20px 70px rgba(0,0,0,.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.reason-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    line-height:1.5;
+    color:#f1dbe3;
+}
+
+.reason-number{
+    color:#ff789f;
+    font-size:13px;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.reason-btn{
+    margin-top:25px;
+    padding:13px 25px;
+    border:1px solid #ff719c;
+    border-radius:30px;
+    background:transparent;
+    color:#ff9ab8;
+    cursor:pointer;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+#letter{
+    position:absolute;
+    inset:0;
+    z-index:70;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(4,1,7,.97);
+    opacity:0;
+    visibility:hidden;
+    transition:1s;
+    padding:20px;
+}
+
+#letter.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.letter-box{
+    width:min(800px,92%);
+    max-height:88vh;
+    overflow:auto;
+    padding:45px;
+    text-align:center;
+    border:1px solid rgba(255,130,170,.25);
+    background:rgba(255,255,255,.035);
+    box-shadow:0 30px 100px rgba(0,0,0,.7);
+}
+
+.letter-title{
+    font-family:'Dancing Script',cursive;
+    color:#ff79a4;
+    font-size:55px;
+    margin-bottom:25px;
+}
+
+#typed{
+    color:#e8cdd7;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.8;
+}
+
+.letter-shayari{
+    margin-top:25px;
+    padding:20px 10px;
+    border-top:1px solid rgba(255,120,160,.2);
+    border-bottom:1px solid rgba(255,120,160,.2);
+    color:#ffabc4;
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    line-height:1.7;
+}
+
+.close{
+    margin-top:25px;
+    padding:13px 25px;
+    border-radius:30px;
+    border:1px solid #ff719c;
+    background:transparent;
+    color:#ff9ab8;
+    cursor:pointer;
+}
+
+/* =========================
+   ROSE
+========================= */
+
+#rose{
+    position:absolute;
+    inset:0;
+    z-index:80;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:rgba(4,1,7,.97);
+    opacity:0;
+    visibility:hidden;
+    transition:1s;
+}
+
+#rose.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.rose-icon{
+    font-size:130px;
+    animation:rose 2s forwards;
+    filter:drop-shadow(0 0 40px #ff285f);
+}
+
+@keyframes rose{
+    0%{
+        transform:scale(.1) rotate(-30deg);
+        opacity:0;
+    }
+    60%{
+        transform:scale(1.2) rotate(8deg);
+    }
+    100%{
+        transform:scale(1) rotate(0);
+        opacity:1;
+    }
+}
+
+.rose-title{
+    font-family:'Dancing Script',cursive;
+    color:#ff79a4;
+    font-size:55px;
+    margin-top:15px;
+}
+
+.rose-text{
+    color:#dfc5ce;
+    margin-top:10px;
+}
+
+/* =========================
+   SECRET HEART
+========================= */
+
+#secret{
+    position:absolute;
+    inset:0;
+    z-index:85;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle,#420a26,#070207 70%);
+    opacity:0;
+    visibility:hidden;
+    transition:1s;
+}
+
+#secret.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.secret-heart{
+    font-size:100px;
+    cursor:pointer;
+    filter:drop-shadow(0 0 35px #ff1f67);
+    animation:beat 1.2s infinite;
+}
+
+.secret-hint{
+    margin-top:20px;
+    color:#cfaeba;
+    font-size:13px;
+}
+
+.secret-message{
+    margin-top:25px;
+    color:#ff8cad;
+    font-family:'Dancing Script',cursive;
+    font-size:45px;
+    opacity:0;
+    transform:scale(.7);
+    transition:.8s;
+}
+
+.secret-message.show{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final{
+    position:absolute;
+    inset:0;
+    z-index:95;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle,#470a28,#080208 70%);
+    opacity:0;
+    visibility:hidden;
+    transition:1.5s;
+    padding:20px;
+}
+
+#final.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.final-heart{
+    font-size:80px;
+    animation:beat 1.2s infinite;
+}
+
+.final-title{
+    font-family:'Dancing Script',cursive;
+    color:#ff76a3;
+    font-size:clamp(60px,10vw,110px);
+    text-shadow:0 0 40px #ff256b;
+    margin:15px 0;
+}
+
+.final-text{
+    max-width:700px;
+    margin:auto;
+    color:#e8ced8;
+    line-height:1.9;
+}
+
+.final-shayari{
+    max-width:700px;
+    margin:20px auto;
+    color:#ffc4d8;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.7;
+}
+
+.signature{
+    margin-top:20px;
+    color:#ff91b0;
+    font-family:'Dancing Script',cursive;
+    font-size:35px;
+}
+
+/* =========================
+   MUSIC
+========================= */
 
 .music{
-  position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.2);background:rgba(25,5,15,.85);color:#fff;cursor:pointer;z-index:500
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:200;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:1px solid #ff719c;
+    background:rgba(20,3,12,.9);
+    color:white;
+    cursor:pointer;
 }
 
-.floating-heart{position:fixed;bottom:-50px;z-index:300;pointer-events:none;animation:float linear forwards}
-@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+/* =========================
+   MOBILE
+========================= */
 
-#fireworks{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:400}
+@media(max-width:700px){
 
-@media(max-width:800px){
-  .memory-grid{grid-template-columns:1fr}
-  .memory{height:auto}
-  .memory img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-  .event,.event:nth-child(even){width:100%;margin-left:0;padding-left:40px;padding-right:15px}
-  .timeline:before{left:10px}
-  .event:after,.event:nth-child(even):after{left:0;right:auto}
-  .envelope{padding:35px 25px}
-  .letter-content{font-size:19px}
+    .heart-area{
+        transform:scale(.65);
+    }
+
+    .photo{
+        width:82px;
+        height:112px;
+    }
+
+    .photo1{
+        left:2%;
+        top:8%;
+    }
+
+    .photo2{
+        right:2%;
+        top:8%;
+    }
+
+    .photo3{
+        left:2%;
+        bottom:14%;
+    }
+
+    .photo4{
+        right:2%;
+        bottom:14%;
+    }
+
+    .shayari-box{
+        bottom:3%;
+    }
+
+    .shayari-title{
+        font-size:34px;
+    }
+
+    .shayari{
+        font-size:15px;
+    }
+
+    .reason-text{
+        font-size:23px;
+    }
+
+    .letter-box{
+        padding:28px 20px;
+    }
+
+    #typed{
+        font-size:19px;
+    }
+
+    .letter-shayari{
+        font-size:18px;
+    }
+
 }
 </style>
 </head>
 
-<body class="lock">
+<body>
 
-<div id="intro">
-  <div class="intro-box">
-    <div class="intro-heart">❤️</div>
-    <div class="intro-small">A secret message for you</div>
-    <div class="intro-title">For <span>Sheeba</span></div>
-    <div class="intro-text">
-      Some people come into our lives...<br>
-      and quietly become our favorite part of it.
-    </div>
-    <button class="enter-btn" onclick="enterSite()">OPEN MY HEART 💌</button>
-  </div>
-</div>
-
-<!-- Optional: upload music.mp3 next to index.html -->
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<button class="music" id="musicButton" onclick="toggleMusic()">🎵</button>
-
-<section id="hero">
-  <div class="container">
-    <div class="hero-date">A special day for a special girl</div>
-    <div class="hero-title">Happy<br><span>Birthday</span></div>
-    <div class="hero-subtitle">
-      Today the world celebrates the day you were born...
-      but I celebrate the day someone incredibly special
-      became part of my life. ❤️
-    </div>
-    <div class="scroll">KEEP SCROLLING <span>↓</span></div>
-  </div>
-</section>
-
-<section id="letter">
-  <div class="container">
-    <div class="label">From my heart</div>
-    <div class="title">I wrote something for you...</div>
-
-    <div class="letter-wrapper">
-      <div class="envelope">
-        <div class="letter-icon">💌</div>
-
-        <div class="letter-content">
-          My dearest <strong>Sheeba</strong>,
-          <br><br>
-          If I could give you one thing today,
-          I wouldn't give you something expensive.
-          <br><br>
-          I'd give you the ability to see yourself
-          through my eyes...
-          <br><br>
-          because then you would finally understand
-          just how special you are to me.
-          <br><br>
-          I love the little things about you.
-          Your smile. Your voice. Your silly moments.
-          The way you make ordinary conversations feel like memories.
-          <br><br>
-          You have somehow become one of those people
-          whose presence makes everything feel better.
-          <br><br>
-          So today, I only have one wish for you:
-          <br><br>
-          <strong>May life give you every happiness your heart deserves.</strong>
-          <br><br>
-          And selfishly... I hope I get to be there
-          for many of those beautiful moments.
-        </div>
-
-        <div class="signature">With all my heart,<br>Adil ❤️</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="memories">
-  <div class="container">
-    <div class="label">Our memories</div>
-    <div class="title">Little moments.<br>Big memories. ❤️</div>
-
-    <div class="memory-grid">
-
-      <div class="memory">
-        <img src="photo1.jpg" alt="Our memory 1">
-        <div class="memory-caption">The moment that means so much to me. ❤️</div>
-      </div>
-
-      <div class="memory">
-        <img src="photo2.jpg" alt="Our memory 2">
-        <div class="memory-caption">Your smile will always be my favorite. 💕</div>
-      </div>
-
-      <div class="memory">
-        <img src="photo3.jpg" alt="Our memory 3">
-        <div class="memory-caption">A memory I would replay forever. ✨</div>
-      </div>
-
-      <div class="memory">
-        <img src="photo4.jpg" alt="Our memory 4">
-        <div class="memory-caption">You make ordinary moments beautiful. 💗</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="timeline">
-  <div class="container">
-    <div class="label">Our little story</div>
-    <div class="title">If I could replay<br>everything...</div>
-
-    <div class="timeline">
-      <div class="event">
-        <h3>The Beginning</h3>
-        <p>The moment our story started, I didn't know it would become something this beautiful.</p>
-      </div>
-      <div class="event">
-        <h3>The First Smile</h3>
-        <p>Somehow your smile became one of those little things I started looking forward to.</p>
-      </div>
-      <div class="event">
-        <h3>The Memories</h3>
-        <p>Conversations, jokes, random moments... somehow they all became important.</p>
-      </div>
-      <div class="event">
-        <h3>Today ❤️</h3>
-        <p>Today I'm simply grateful that someone like you exists in my world.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="reasons">
-  <div class="container">
-    <div class="label">Just a few reasons</div>
-    <div class="title">Why you're special</div>
-
-    <div class="reason-box">
-      <div>
-        <div class="reason" id="reason">
-          Because your smile can completely change my mood. ❤️
-        </div>
-        <button class="reason-btn" onclick="nextReason()">Tell me another ❤️</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="gift">
-  <div class="container" style="text-align:center">
-    <div class="label">One last surprise</div>
-    <div class="title">I saved something for you 🎁</div>
-
-    <div class="gift" onclick="openGift()">
-      <div class="gift-lid"></div>
-      <div class="gift-body"></div>
-      <div class="ribbon ribbon-v"></div>
-      <div class="ribbon ribbon-h"></div>
-    </div>
-
-    <div class="gift-message" id="giftMessage">
-      <h3>My gift is you. ❤️</h3>
-      <p>
-        Not because I own you... but because getting to know you,
-        laughing with you, and making memories with you
-        is something I treasure.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="final">
-  <div class="container" style="text-align:center">
-    <div class="final-heart">❤️</div>
-    <div class="final-title">One last thing...</div>
-
-    <div class="final-text">
-      If this little website made you smile,
-      then it has already done what I wanted.
-      <br><br>
-      Happy Birthday, Sheeba.
-      <br><br>
-      Keep smiling. Keep shining.
-      And never forget how special you are.
-      <br><br>
-      <strong style="color:#ff82a9">
-        Here's to many more beautiful memories. ❤️
-      </strong>
-    </div>
-
-    <button class="enter-btn" onclick="celebrate()">MAKE A WISH ✨</button>
-  </div>
-</section>
-
+<canvas id="stars"></canvas>
 <canvas id="fireworks"></canvas>
 
+<!-- INTRO -->
+
+<div id="intro">
+
+    <div class="intro-box">
+
+        <div class="small-text">
+            A secret surprise for you
+        </div>
+
+        <div class="intro-heart">
+            ❤️
+        </div>
+
+        <div class="intro-title">
+            For <span>Sheeba</span>
+        </div>
+
+        <div class="intro-text">
+            Kuch special hai tumhare liye...
+            <br>
+            Bas ek baar "Open My Heart" dabao. ❤️
+        </div>
+
+        <button class="btn" onclick="start()">
+            OPEN MY HEART ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" id="musicButton" onclick="musicToggle()">
+    🎵
+</button>
+
+
+<!-- MAIN -->
+
+<div id="main">
+
+    <div class="hero">
+
+        <!-- PHOTOS -->
+
+        <div class="photo photo1">
+            <img src="photo1.jpg">
+        </div>
+
+        <div class="photo photo2">
+            <img src="photo2.jpg">
+        </div>
+
+        <div class="photo photo3">
+            <img src="photo3.jpg">
+        </div>
+
+        <div class="photo photo4">
+            <img src="photo4.jpg">
+        </div>
+
+
+        <!-- HEART -->
+
+        <div class="heart-area">
+
+            <div class="big-heart"></div>
+
+            <div class="heart-writing">
+                Sheeba
+            </div>
+
+            <div class="heart-birthday">
+                HAPPY BIRTHDAY
+            </div>
+
+        </div>
+
+
+        <!-- SHAYARI -->
+
+        <div class="shayari-box" id="shayariBox">
+
+            <div class="shayari-title">
+                Happy Birthday, Meri Special One ❤️
+            </div>
+
+            <div class="shayari">
+
+                "Aaj ka din mere liye bhi bahut khaas hai,<br>
+                kyunki aaj woh insaan is duniya mein aaya tha,<br>
+                jiski ek smile meri poori duniya badal sakti hai. ❤️"
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- REASONS -->
+
+    <div id="reasons">
+
+        <div class="reason-container">
+
+            <div class="section-title">
+                Reasons Why You're Special ❤️
+            </div>
+
+            <div class="reason-card">
+
+                <div>
+
+                    <div class="reason-number" id="reasonNumber">
+                        REASON 1 / 8
+                    </div>
+
+                    <div class="reason-text" id="reasonText">
+                        Tumhari smile meri favourite cheezon mein se ek hai. ❤️
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="reason-btn" onclick="nextReason()">
+                Another Reason ❤️
+            </button>
+
+            <br>
+
+            <button class="reason-btn" onclick="openLetter()">
+                Continue 💌
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- LETTER -->
+
+    <div id="letter">
+
+        <div class="letter-box">
+
+            <div class="letter-title">
+                A Letter For You 💌
+            </div>
+
+            <div id="typed"></div>
+
+            <div class="letter-shayari">
+
+                "Kuch log zindagi mein bas milte nahi,<br>
+                balki zindagi ka ek khoobsurat hissa ban jaate hain.<br>
+                Tum mere liye wahi ho, Sheeba. ❤️"
+
+            </div>
+
+            <button class="close" onclick="closeLetter()">
+                Continue My Surprise ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ROSE -->
+
+    <div id="rose">
+
+        <div>
+
+            <div class="rose-icon">
+                🌹
+            </div>
+
+            <div class="rose-title">
+                For You, Sheeba
+            </div>
+
+            <div class="rose-text">
+                A small rose for this girl who is very special to me And my life also meri jaannnn sheebaaa. ❤️
+            </div>
+
+            <button class="btn" onclick="showSecret()">
+                ONE MORE THING ✨
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SECRET -->
+
+    <div id="secret">
+
+        <div>
+
+            <div class="section-title">
+                There is one last secret...
+            </div>
+
+            <div
+                class="secret-heart"
+                onclick="revealSecret()"
+            >
+                ❤️
+            </div>
+
+            <div class="secret-hint">
+                Tap the heart ❤️
+            </div>
+
+            <div
+                class="secret-message"
+                id="secretMessage"
+            >
+                You are one of my favourite reasons
+                to smile. 🫶❤️
+            </div>
+
+            <button
+                class="btn"
+                id="finalButton"
+                style="display:none"
+                onclick="showFinal()"
+            >
+                MAKE A WISH ✨
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL -->
+
+    <div id="final">
+
+        <div>
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <div class="final-title">
+                Happy Birthday
+            </div>
+
+            <div class="final-text">
+
+                Sheeba, aaj ka din sirf tumhara hai.
+
+                <br><br>
+
+                Meri dua hai ki tumhari life mein
+                kabhi khushiyon ki kami na ho,
+                tumhare har dream ko ek beautiful reality mile.
+
+            </div>
+
+            <div class="final-shayari">
+
+                "Dua hai meri, teri zindagi mein kabhi gham na aaye,<br>
+                har khushi tere kadam choome,<br>
+                har sapna tera sach ho jaaye. ❤️<br><br>
+
+                Bas yunhi hamesha muskurati rehna,<br>
+                kyunki teri smile meri favourite cheez hai. 🫶"
+
+            </div>
+
+            <div class="signature">
+                With lots of love,<br>
+                Adil ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 <script>
-const intro=document.getElementById("intro");
-const music=document.getElementById("music");
-const musicButton=document.getElementById("musicButton");
 
-function enterSite(){
-  intro.style.opacity="0";
-  setTimeout(()=>{
-    intro.remove();
-    document.body.classList.remove("lock");
-  },1500);
+/* =========================
+   STARS
+========================= */
 
-  music.play().then(()=>{
-    musicButton.innerHTML="🔊";
-  }).catch(()=>{
-    musicButton.innerHTML="🎵";
-  });
+const starCanvas =
+document.getElementById("stars");
 
-  startHearts();
+const starCtx =
+starCanvas.getContext("2d");
+
+let stars=[];
+
+function resizeStars(){
+
+    starCanvas.width=innerWidth;
+    starCanvas.height=innerHeight;
+
 }
 
-function toggleMusic(){
-  if(music.paused){
-    music.play();
-    musicButton.innerHTML="🔊";
-  }else{
-    music.pause();
-    musicButton.innerHTML="🎵";
-  }
+resizeStars();
+
+window.addEventListener(
+    "resize",
+    resizeStars
+);
+
+for(let i=0;i<180;i++){
+
+    stars.push({
+
+        x:Math.random()*innerWidth,
+        y:Math.random()*innerHeight,
+        r:Math.random()*1.6,
+        a:Math.random()
+
+    });
+
 }
+
+function drawStars(){
+
+    starCtx.clearRect(
+        0,
+        0,
+        starCanvas.width,
+        starCanvas.height
+    );
+
+    stars.forEach(s=>{
+
+        starCtx.beginPath();
+
+        starCtx.arc(
+            s.x,
+            s.y,
+            s.r,
+            0,
+            Math.PI*2
+        );
+
+        starCtx.fillStyle=
+            `rgba(255,190,215,${s.a})`;
+
+        starCtx.fill();
+
+    });
+
+    requestAnimationFrame(drawStars);
+
+}
+
+drawStars();
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const intro=
+document.getElementById("intro");
+
+const main=
+document.getElementById("main");
+
+const shayariBox=
+document.getElementById("shayariBox");
+
+const reasons=
+document.getElementById("reasons");
+
+const letter=
+document.getElementById("letter");
+
+const rose=
+document.getElementById("rose");
+
+const secret=
+document.getElementById("secret");
+
+const final=
+document.getElementById("final");
+
+const music=
+document.getElementById("music");
+
+const musicButton=
+document.getElementById("musicButton");
+
+
+/* =========================
+   START
+========================= */
+
+function start(){
+
+    intro.style.opacity="0";
+
+    setTimeout(()=>{
+
+        intro.style.display="none";
+
+        main.classList.add("show");
+
+    },1200);
+
+    music.play().then(()=>{
+
+        musicButton.innerHTML="🔊";
+
+    }).catch(()=>{
+
+        musicButton.innerHTML="🎵";
+
+    });
+
+    createHearts();
+
+    const photos=
+        document.querySelectorAll(".photo");
+
+    photos.forEach((photo,index)=>{
+
+        setTimeout(()=>{
+
+            photo.classList.add("show");
+
+        },700+index*500);
+
+    });
+
+    setTimeout(()=>{
+
+        shayariBox.classList.add("show");
+
+    },3500);
+
+    setTimeout(()=>{
+
+        reasons.classList.add("show");
+
+    },6000);
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 function createHeart(){
-  const heart=document.createElement("div");
-  heart.className="floating-heart";
-  const list=["❤️","💕","💗","💖","💘"];
-  heart.innerHTML=list[Math.floor(Math.random()*list.length)];
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(14+Math.random()*30)+"px";
-  heart.style.animationDuration=(5+Math.random()*6)+"s";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),12000);
+
+    const heart=
+        document.createElement("div");
+
+    heart.innerHTML=
+        ["❤️","💕","💗","💖","💘","💞"]
+        [Math.floor(Math.random()*6)];
+
+    heart.style.position="fixed";
+
+    heart.style.bottom="-40px";
+
+    heart.style.left=
+        Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        14+Math.random()*30+"px";
+
+    heart.style.zIndex="120";
+
+    heart.style.pointerEvents="none";
+
+    const duration=
+        4+Math.random()*6;
+
+    heart.style.transition=
+        `transform ${duration}s linear,
+         opacity ${duration}s linear`;
+
+    document.body.appendChild(heart);
+
+    requestAnimationFrame(()=>{
+
+        heart.style.transform=
+            `translateY(-110vh)
+             rotate(${Math.random()*360}deg)`;
+
+        heart.style.opacity="0";
+
+    });
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },duration*1000);
+
 }
 
-function startHearts(){
-  setInterval(createHeart,500);
+function createHearts(){
+
+    setInterval(
+        createHeart,
+        350
+    );
+
 }
 
-const reasons=[
-  "Because your smile can completely change my mood. ❤️",
-  "Because talking to you can make an ordinary day feel special. 💕",
-  "Because you have a way of making memories without even trying. ✨",
-  "Because your happiness genuinely matters to me. 💗",
-  "Because somehow, you became one of my favorite people. ❤️",
-  "Because being around you feels like home. 🫶"
+
+/* =========================
+   REASONS
+========================= */
+
+const reasonList=[
+
+    "Tumhari smile meri favourite cheezon mein se ek hai. ❤️",
+
+    "Tumse baat karna ordinary day ko bhi special bana deta hai. 💕",
+
+    "Tumhari chhoti-chhoti baatein bhi mujhe yaad reh jaati hain. ✨",
+
+    "Tumhari happiness mere liye genuinely important hai. 🫶",
+
+    "Tumhare saath banayi memories mere liye priceless hain. ❤️",
+
+    "Tumhare hone se life thodi aur beautiful lagti hai. 💗",
+
+    "Tum woh person ho jiske saath main aur memories banana chahta hoon. 💖",
+
+    "Sabse simple reason... tum bas tum ho, aur wahi enough hai. ❤️"
+
 ];
 
 let reasonIndex=0;
 
 function nextReason(){
-  reasonIndex=(reasonIndex+1)%reasons.length;
-  const box=document.getElementById("reason");
-  box.style.opacity="0";
-  setTimeout(()=>{
-    box.innerHTML=reasons[reasonIndex];
-    box.style.opacity="1";
-  },250);
+
+    reasonIndex++;
+
+    if(reasonIndex>=reasonList.length){
+
+        reasonIndex=0;
+
+    }
+
+    const text=
+        document.getElementById("reasonText");
+
+    const number=
+        document.getElementById("reasonNumber");
+
+    text.style.opacity="0";
+
+    setTimeout(()=>{
+
+        text.innerHTML=
+            reasonList[reasonIndex];
+
+        number.innerHTML=
+            `REASON ${reasonIndex+1} / ${reasonList.length}`;
+
+        text.style.opacity="1";
+
+    },250);
+
 }
 
-function openGift(){
-  const gift=document.querySelector(".gift");
-  const message=document.getElementById("giftMessage");
-  gift.classList.toggle("open");
-  message.classList.toggle("show");
 
-  if(message.classList.contains("show")){
-    for(let i=0;i<15;i++) setTimeout(createHeart,i*100);
-  }
+/* =========================
+   LETTER
+========================= */
+
+const letterText=
+`My dearest Sheeba,
+
+Aaj tumhara birthday hai,
+aur main bas itna kehna chahta hoon
+ki tum mere liye bahut special ho.
+
+Kabhi-kabhi kuch log bina kisi warning ke
+hamari life ka beautiful part ban jaate hain.
+
+Tumhari smile,
+tumhari baatein,
+tumhari little habits...
+
+Pata nahi kab ye sab meri favourite memories
+ban gayi.
+
+Meri wish hai ki tumhari life mein
+har woh happiness aaye jo tum deserve karti ho.
+
+Aur jab bhi life difficult lage,
+bas ek baat yaad rakhna...
+
+Tum bahut precious ho.
+
+Happy Birthday, Sheeba. ❤️
+
+Keep smiling.
+Keep shining.
+
+With all my heart,
+Adil ❤️`;
+
+let typedStarted=false;
+
+function openLetter(){
+
+    reasons.classList.remove("show");
+
+    setTimeout(()=>{
+
+        letter.classList.add("show");
+
+    },500);
+
+    if(typedStarted)
+        return;
+
+    typedStarted=true;
+
+    const box=
+        document.getElementById("typed");
+
+    let i=0;
+
+    function type(){
+
+        if(i<letterText.length){
+
+            if(letterText[i]==="\n"){
+
+                box.innerHTML+="<br>";
+
+            }else{
+
+                box.innerHTML+=
+                    letterText[i];
+
+            }
+
+            i++;
+
+            setTimeout(
+                type,
+                25
+            );
+
+        }
+
+    }
+
+    type();
+
 }
 
-const canvas=document.getElementById("fireworks");
-const ctx=canvas.getContext("2d");
-let particles=[];
 
-function resize(){
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
-}
-resize();
-window.addEventListener("resize",resize);
+/* =========================
+   ROSE
+========================= */
 
-function firework(){
-  const x=Math.random()*canvas.width;
-  const y=Math.random()*canvas.height*.55;
+function closeLetter(){
 
-  for(let i=0;i<70;i++){
-    const angle=Math.random()*Math.PI*2;
-    const speed=2+Math.random()*6;
+    letter.classList.remove("show");
 
-    particles.push({
-      x:x,y:y,
-      vx:Math.cos(angle)*speed,
-      vy:Math.sin(angle)*speed,
-      life:80+Math.random()*40,
-      size:1+Math.random()*2
-    });
-  }
+    setTimeout(()=>{
+
+        rose.classList.add("show");
+
+    },800);
+
 }
 
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  particles.forEach((p,index)=>{
-    p.x+=p.vx;
-    p.y+=p.vy;
-    p.vy+=.035;
-    p.life--;
+/* =========================
+   SECRET
+========================= */
 
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-    ctx.fillStyle="rgba(255,130,180,.9)";
-    ctx.fill();
+function showSecret(){
 
-    if(p.life<=0) particles.splice(index,1);
-  });
+    rose.classList.remove("show");
 
-  requestAnimationFrame(animate);
+    setTimeout(()=>{
+
+        secret.classList.add("show");
+
+    },700);
+
 }
-animate();
 
-function celebrate(){
-  for(let i=0;i<18;i++) setTimeout(firework,i*180);
-  for(let i=0;i<50;i++) setTimeout(createHeart,i*70);
+function revealSecret(){
+
+    const secretMessage=
+        document.getElementById(
+            "secretMessage"
+        );
+
+    const finalButton=
+        document.getElementById(
+            "finalButton"
+        );
+
+    secretMessage.classList.add("show");
+
+    finalButton.style.display=
+        "inline-block";
+
+    for(let i=0;i<15;i++){
+
+        setTimeout(
+            createHeart,
+            i*100
+        );
+
+    }
+
 }
+
+
+/* =========================
+   FINAL
+========================= */
+
+function showFinal(){
+
+    secret.classList.remove("show");
+
+    setTimeout(()=>{
+
+        final.classList.add("show");
+
+        fireworks();
+
+        for(let i=0;i<80;i++){
+
+            setTimeout(
+                createHeart,
+                i*50
+            );
+
+        }
+
+    },800);
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function musicToggle(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.innerHTML="🔊";
+
+    }else{
+
+        music.pause();
+
+        musicButton.innerHTML="🎵";
+
+    }
+
+}
+
+
+/* =========================
+   FIREWORKS
+========================= */
+
+const fireCanvas=
+    document.getElementById("fireworks");
+
+const fireCtx=
+    fireCanvas.getContext("2d");
+
+let sparks=[];
+
+function resizeFire(){
+
+    fireCanvas.width=innerWidth;
+    fireCanvas.height=innerHeight;
+
+}
+
+resizeFire();
+
+window.addEventListener(
+    "resize",
+    resizeFire
+);
+
+function fireworks(){
+
+    for(let n=0;n<20;n++){
+
+        setTimeout(()=>{
+
+            const x=
+                Math.random()*fireCanvas.width;
+
+            const y=
+                Math.random()*fireCanvas.height*.55;
+
+            for(let i=0;i<60;i++){
+
+                const angle=
+                    Math.random()*Math.PI*2;
+
+                const speed=
+                    2+Math.random()*6;
+
+                sparks.push({
+
+                    x:x,
+                    y:y,
+
+                    vx:
+                        Math.cos(angle)*speed,
+
+                    vy:
+                        Math.sin(angle)*speed,
+
+                    life:
+                        70+Math.random()*60
+
+                });
+
+            }
+
+        },n*220);
+
+    }
+
+}
+
+function animateFireworks(){
+
+    fireCtx.clearRect(
+        0,
+        0,
+        fireCanvas.width,
+        fireCanvas.height
+    );
+
+    sparks.forEach(
+        (s,index)=>{
+
+            s.x+=s.vx;
+            s.y+=s.vy;
+            s.vy+=.04;
+            s.life--;
+
+            fireCtx.beginPath();
+
+            fireCtx.arc(
+                s.x,
+                s.y,
+                2,
+                0,
+                Math.PI*2
+            );
+
+            fireCtx.fillStyle=
+                "rgba(255,130,180,.9)";
+
+            fireCtx.fill();
+
+            if(s.life<=0){
+
+                sparks.splice(
+                    index,
+                    1
+                );
+
+            }
+
+        }
+    );
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+
+}
+
+animateFireworks();
+
 </script>
 
 </body>
